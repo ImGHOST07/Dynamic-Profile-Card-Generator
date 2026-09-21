@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(33, 33, 33);
+}
+
+.forminps {
+    display: block;
+    margin-top: 5px;
+}
+
+.main {
+    padding: 30px;
+}
+
+.sub {
+    padding: 5px 62px ;
+    background-color: forestgreen;
+    border: none;
+    cursor: pointer;
+}
+
+.card {
+    border: 1px solid rgb(114, 112, 112);
+    max-width: 300px;
+    color: white;
+    border-radius: 20px;
+    margin: 20px 10px 0 0;
+}
+
+.card-ele {
+    padding-left: 15px;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    padding: 0%;
+    margin-left: 15px;
+    margin-top: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.p-pic{
+    width: 40px;
+    object-fit: contain;
+}
+
+.p2 {
+    margin-bottom: 5px;
+}
