@@ -1,58 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --bg: #121316;
+  --panel: #1a1c21;
+  --panel-inset: #0f1013;
+  --border: #2c2f36;
+  --border-strong: #3c4048;
+  --text: #edebe5;
+  --text-dim: #8e8b85;
+  --text-faint: #605d58;
+  --accent: #e4b34a;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+}
+
 * {
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(33, 33, 33);
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Layout ---------- */
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding: var(--space-6);
+}
+
+/* ---------- Form panel ---------- */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 300px;
+  flex-shrink: 0;
+  padding: var(--space-5);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 }
 
 .forminps {
-    display: block;
-    margin-top: 5px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
-.main {
-    padding: 30px;
+input.forminps {
+  padding: var(--space-3);
+  background: var(--panel-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease;
+}
+
+input.forminps::placeholder {
+  color: var(--text-faint);
+}
+
+input.forminps:hover {
+  border-color: var(--border-strong);
+}
+
+input.forminps:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--panel);
 }
 
 .sub {
-    padding: 5px 62px ;
-    background-color: forestgreen;
-    border: none;
-    cursor: pointer;
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  background: var(--accent);
+  color: #1a1305;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: filter 0.15s ease;
 }
 
+.sub:hover {
+  filter: brightness(1.08);
+}
+
+.sub:active {
+  filter: brightness(0.95);
+}
+
+/* ---------- Card ---------- */
+
 .card {
-    border: 1px solid rgb(114, 112, 112);
-    max-width: 300px;
-    color: white;
-    border-radius: 20px;
-    margin: 20px 10px 0 0;
+  width: 260px;
+  flex-shrink: 0;
+  padding-bottom: var(--space-4);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: card-in 0.35s ease both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
 }
 
 .card-ele {
-    padding-left: 15px;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
 }
 
 .profile {
-    width: 35px;
-    height: 35px;
-    padding: 0%;
-    margin-left: 15px;
-    margin-top: 5px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin-top: var(--space-4);
+  margin-left: var(--space-4);
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--panel-inset);
+  display: inline-block;
 }
 
-.p-pic{
-    width: 40px;
-    object-fit: contain;
+.p-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  margin-top: var(--space-3);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.age {
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+.p1 {
+  margin-bottom: var(--space-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .p2 {
-    margin-bottom: 5px;
+  margin-bottom: var(--space-4);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 680px) {
+  .main {
+    flex-direction: column;
+    padding: var(--space-4);
+  }
+
+  form,
+  .card {
+    width: 100%;
+  }
 }
